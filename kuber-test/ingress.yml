@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kuber-test
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /kuber-test
+            backend:
+              service:
+                name: kuber-test
+                port:
+                  number: 80
+          - pathType: Prefix
+            path: /spring-admin
+            backend:
+              service:
+                name: spring-admin
+                port:
+                  number: 80

@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: kuber-test
+#  config:
+#    import: optional:configserver:http://localhost:8889
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DATASOURCE_HOST:localhost}:5550/kuber-test
+    username: admin
+    password: admin
+
+  boot:
+    admin:
+      client:
+        instance:
+          prefer-ip: true
+        url: ${SPRING_ADMIN:http://localhost:9000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#server:
+#  servlet:
+#    context-path: /kuber-test
